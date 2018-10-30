@@ -83,7 +83,7 @@ public class MainActivity extends Activity {
         if (RePlugin.isPluginInstalled(pluginName))
         {
             Log.e("","*********************startActivity");
-            RePlugin.startActivity(MainActivity.this, RePlugin.createIntent(pluginName, "com.znt.speaker.VideoPageActivity"));
+            RePlugin.startActivity(MainActivity.this, RePlugin.createIntent(pluginName, "com.znt.speaker.MainActivity"));
         }
         else
         {
