@@ -10,22 +10,23 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:padding="22dp"
+        android:padding="12dp"
         >
         <ImageView 
 	        android:id="@+id/iv_app_icon"
 	        android:layout_width="108dp"
 	        android:layout_height="108dp"
-	        android:padding="12dp"
+	        android:padding="6dp"
 	        android:layout_gravity="center_horizontal"
+			android:scaleType="centerCrop"
 	        />
         <TextView 
             android:id="@+id/tv_app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="6dp"
-            android:textSize="22sp"
+            android:layout_marginTop="2dp"
+            android:textSize="18sp"
             android:textColor="#ffffff"
             android:singleLine="true"
             android:ellipsize="end"
