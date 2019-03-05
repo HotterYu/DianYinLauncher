@@ -53,11 +53,12 @@ public class MainActivity extends Activity implements OnItemClickListener
 	
 	private final String pkgSpeaker = "com.znt.speaker";
 	private final String pkgMySelf = "com.znt.luncher";
-	private boolean isInit = true;
 	private final int CHECK_FRONT_APP = 0;
 	private View ivBg = null;
 	private TextView tvTimer = null;
-	private int timeCount = 30;
+
+	private final int MAX_TIME_COUNT = 5;
+	private int timeCount = MAX_TIME_COUNT;
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler()
 	{
@@ -67,7 +68,7 @@ public class MainActivity extends Activity implements OnItemClickListener
 			{
 				if(timeCount == -1)
 				{
-					timeCount = 30;
+					timeCount = MAX_TIME_COUNT;
 					if(isRunningForeground(pkgSpeaker) != 0)
 					{
 						doStartApplicationWithPackageName(pkgSpeaker);
@@ -102,7 +103,7 @@ public class MainActivity extends Activity implements OnItemClickListener
         
         checkFrontAppTimer = new CheckFrontAppTimer(getApplicationContext());
         checkFrontAppTimer.setHandler(handler, CHECK_FRONT_APP);
-        checkFrontAppTimer.setTimeInterval(1000);
+        checkFrontAppTimer.setTimeInterval(3000);
         
         mGrid.setOnItemClickListener(this);
         
@@ -127,7 +128,7 @@ public class MainActivity extends Activity implements OnItemClickListener
 
 	public void startTimer()
 	{
-		timeCount = 30;
+		timeCount = MAX_TIME_COUNT;
 		checkFrontAppTimer.startTimer();
 	}
 	public void stopTimer()
@@ -194,9 +195,7 @@ public class MainActivity extends Activity implements OnItemClickListener
 	@Override
 	protected void onDestroy() 
 	{
-		if(!isInit)
-			checkFrontAppTimer.stopTimer();
-
+		checkFrontAppTimer.stopTimer();
 		unregisterReceiver(appReceiver);
 		// TODO Auto-generated method stub
 		super.onDestroy();

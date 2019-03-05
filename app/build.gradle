@@ -16,8 +16,8 @@ android {
         applicationId "com.znt.luncher"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 20190101
-        versionName "20190101"
+        versionCode 20190208
+        versionName "v2019.02.08"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.config
     }
